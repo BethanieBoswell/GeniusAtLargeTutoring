@@ -100,6 +100,10 @@ p {
     background-color: var(--bg-light);
 }
 
+.bg-cream {
+    background-color: var(--bg-cream);
+}
+
 .bg-dark {
     background-color: var(--primary-blue);
     color: var(--text-light);
@@ -479,3 +483,93 @@ footer p {
     }
 }
 
+/* =========================================
+   NEW STYLES FOR CLIENT SUCCESS STORIES
+   ========================================= */
+
+/* The grid that holds the 3 cards */
+.client-quote-grid {
+    display: grid;
+    /* This ensures 3 columns on large screens, stacking on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+/* The individual card styling */
+.client-quote-card {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    /* Gold accent border on top */
+    border-top: 6px solid var(--primary-gold);
+    position: relative; /* Needed for the decorative quote mark */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover effect for the cards */
+.client-quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Adds a large, faint gold quotation mark in the background */
+.client-quote-card::before {
+    content: '“';
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    font-family: var(--font-heading);
+    font-size: 120px;
+    line-height: 1;
+    color: var(--primary-gold);
+    opacity: 0.15; /* Very faint */
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* The quote text itself */
+.quote-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #444;
+    position: relative;
+    z-index: 1; /* Ensures text sits on top of the decorative quote mark */
+    margin-bottom: 1.5rem;
+}
+
+/* The person who said the quote */
+.quote-author {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--primary-dark-general);
+    text-align: right;
+    margin: 0;
+    font-size: 1rem;
+    margin-top: auto; /* Pushes author to the bottom of card */
+}
+
+/* Styling specifically for the placeholder card to center the text */
+.client-quote-placeholder {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.client-quote-placeholder .quote-text {
+    font-style: normal;
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+    margin-bottom: 0;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 767px) {
+    .client-quote-card {
+        padding: 2rem 1.5rem;
+    }
+}
